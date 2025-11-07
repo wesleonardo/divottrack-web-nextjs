@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+.header {
+    background-color: #03200E; /* Dark background color */
+    color: #ffffff; /* White text color */
+}
+
+.footer {
+    background-color: #03200E; /* Dark background color */
+    color: #ffffff; /* White text color */
+}
