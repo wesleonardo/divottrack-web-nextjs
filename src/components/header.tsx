@@ -19,6 +19,7 @@ export default function Header(){
                 </div>
                 <nav className="flex items-center space-x-6">
                     <Link href="/member" className="font-medium text-grey-800">Member</Link>
+                    <Link href="/signin" className="font-medium text-grey-800">Sign In</Link>
                     <Link href="/create-account" className="font-medium text-grey-800">Create Account</Link>
                     <Link href="/course-finder" className="font-medium text-grey-800">Course Finder</Link>
                 </nav>

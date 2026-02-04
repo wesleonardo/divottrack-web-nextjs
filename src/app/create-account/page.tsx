@@ -69,8 +69,32 @@ export default function Page(){
     setErrors(newErrors)
     if (Object.keys(newErrors).length > 0) return
 
-    // placeholder - integrate with your API
-    console.log("submit", form)
+    // Call signup API
+    ;(async () => {
+      try {
+        const res = await fetch('/api/auth/signup', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            username: form.username,
+            email: form.email,
+            password: form.password,
+            firstName: form.firstName,
+            lastName: form.lastName,
+          }),
+        })
+
+        if (!res.ok) {
+          console.error('Signup failed')
+          return
+        }
+
+        // On success, redirect to signin
+        window.location.href = '/signin'
+      } catch (err) {
+        console.error('Signup error', err)
+      }
+    })()
   }
 
   const isValidEmail = (value: string) => {

@@ -24,3 +24,8 @@ pnpm-debug.log*
 
 # Coverage and test output
 coverage/
+.cache/
+
+# Service account keys (local only)
+divottrack-setup-fe2fae04992e.json
+divottrack-setup-*.json
