@@ -11,5 +11,8 @@ export default async function Page(){
         <Link href="/member/rounds" className="font-medium text-grey-800">Rounds</Link>
         <br/>
         <Link href="/member/add-course" className="font-medium text-grey-800">Add Course</Link>
+        <br/>
+        <Link href="/member/stats" className="font-medium text-grey-800">Stats</Link>
+        
       </div>
 }   
