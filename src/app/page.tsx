@@ -1,14 +1,24 @@
+'use client'
+
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 export default function Page() {
+  const router = useRouter()
+
+  const findCourseLink = () => {
+    router.push("/course-finder");
+
+  }
+  
   return (
     <main>
       {/* Hero Section */}
       <section className="relative w-full h-screen flex items-center justify-center bg-gradient-to-r from-green-900 via-green-700 to-green-800 overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=1200&h=800&fit=crop"
+            src="https://images.unsplash.com/photo-1632946269126-0f8edbe8b068?w=1200&h=800&fit=crop"
             alt="Golf course background"
             fill
             className="object-cover opacity-30"
@@ -53,7 +63,7 @@ export default function Page() {
             <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden">
               <div className="relative w-full h-48">
                 <Image
-                  src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=400&h=300&fit=crop"
+                  src="https://images.unsplash.com/photo-1759752394516-f3d0e9524f7f?w=400&h=300&fit=crop"
                   alt="Track Your Rounds"
                   fill
                   className="object-cover"
@@ -66,10 +76,10 @@ export default function Page() {
             </div>
 
             {/* Feature Card 2 */}
-            <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden">
+            <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden cursor-pointer" onClick={findCourseLink}>
               <div className="relative w-full h-48">
                 <Image
-                  src="https://images.unsplash.com/photo-1511028997589-c1400149cccd?w=400&h=300&fit=crop"
+                  src="https://images.unsplash.com/photo-1592937238247-cd0090e02f65?w=400&h=300&fit=crop"
                   alt="Find Courses"
                   fill
                   className="object-cover"
@@ -85,7 +95,7 @@ export default function Page() {
             <div className="bg-white rounded-xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden">
               <div className="relative w-full h-48">
                 <Image
-                  src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=400&h=300&fit=crop"
+                  src="https://images.unsplash.com/photo-1602991174407-a015b35a7b00?w=400&h=300&fit=crop"
                   alt="Connect with Players"
                   fill
                   className="object-cover"

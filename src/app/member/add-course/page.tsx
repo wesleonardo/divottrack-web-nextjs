@@ -9,6 +9,7 @@ type FacilityFormData = {
   state: string
   zipCode: string
   phoneNumber: string
+  url: string
 }
 
 const initialFormData: FacilityFormData = {
@@ -17,7 +18,8 @@ const initialFormData: FacilityFormData = {
   city: "",
   state: "",
   zipCode: "",
-  phoneNumber: ""
+  phoneNumber: "",
+  url: ""
 }
 
 export default function Page() {
@@ -172,6 +174,20 @@ export default function Page() {
               className="w-full px-3 py-2 bg-white border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
+        </div>
+
+        <div>
+          <label htmlFor="url" className="block text-sm font-medium text-gray-700 mb-1">
+            URL
+          </label>
+          <input
+            type="text"
+            id="url"
+            name="url"
+            value={formData.url}
+            onChange={handleInputChange}
+            className="w-full px-3 py-2 bg-white border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
         </div>
 
         <div className="flex justify-end pt-4">

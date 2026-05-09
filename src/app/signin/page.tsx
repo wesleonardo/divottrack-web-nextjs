@@ -129,24 +129,6 @@ export default function SignIn() {
             </button>
           </form>
 
-          {/* Divider */}
-          <div className="my-6">
-            <a
-              href="/api/auth/google"
-              className="w-full inline-flex items-center justify-center gap-3 px-4 py-3 border border-gray-300 rounded-lg hover:shadow-sm transition text-gray-700 bg-white"
-            >
-                <img src="/file.svg" alt="Google" className="w-5 h-5" />
-              <span className="font-medium">Continue with Google</span>
-            </a>
-          </div>
-
-          {/* Divider */}
-          <div className="my-8 flex items-center">
-            <div className="flex-1 border-t border-gray-300"></div>
-            <div className="px-4 text-sm text-gray-500">or</div>
-            <div className="flex-1 border-t border-gray-300"></div>
-          </div>
-
           {/* Sign Up Link */}
           <p className="text-center text-gray-600">
             Don&apos;t have an account?{' '}

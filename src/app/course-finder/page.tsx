@@ -70,7 +70,15 @@ export default function Page() {
    
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
-      <h1 className="text-4xl font-bold text-center mb-8">Course Finder</h1>
+      <div className="flex items-center justify-between mb-8">
+        <h1 className="text-4xl font-bold">Course Finder</h1>
+        <Link
+          href="/member/add-course"
+          className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium"
+        >
+          + Add Facility
+        </Link>
+      </div>
 
       <div className="max-w-md mx-auto mb-8">
         <label htmlFor="state" className="block text-sm font-medium text-gray-700 mb-2">

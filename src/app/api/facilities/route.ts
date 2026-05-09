@@ -9,7 +9,9 @@ interface FirestoreFacility {
   state: string
   zipCode: string
   phoneNumber?: string
+  url?: string
   createdAt: FirebaseFirestore.Timestamp
+  isActive: boolean
   slug?: string // Optional because it's derived from the document ID
 }
 
@@ -54,21 +56,27 @@ export async function GET(request: Request) {
   }
 }
 
-function createSlug(name: string, state: string): string {
+function createSlug(name: string, city: string, state: string, zipCode: string): string {
   // Convert to lowercase and remove special characters
-  const normalized = name.toLowerCase()
+  const nameNormalized = name.toLowerCase()
     .replace(/[^a-z0-9\s-]/g, '') // Remove special characters
     .replace(/\s+/g, '-')         // Replace spaces with hyphens
     .replace(/-+/g, '-')          // Remove consecutive hyphens
     .trim()                       // Remove leading/trailing spaces
+
+  const cityNormalized = city.toLowerCase()
+    .replace(/[^a-z0-9\s-]/g, '') // Remove special characters
+    .replace(/\s+/g, '-')         // Replace spaces with hyphens
+    .replace(/-+/g, '-')          // Remove consecutive hyphens
+    .trim()                       // Remove leading/trailing spaces  
   
-  return `${normalized}-${state.toLowerCase()}`
+  return `${nameNormalized}-${cityNormalized}-${state.toLowerCase()}-${zipCode}`
 }
 
 export async function POST(request: Request) {
   try {
     const body = await request.json()
-    const { name, address, city, state, zipCode, phoneNumber } = body as Omit<FirestoreFacility, 'createdAt'>
+    const { name, address, city, state, zipCode, phoneNumber, url } = body as Omit<FirestoreFacility, 'createdAt'>
 
     // Validate required fields
     if (!name || !address || !city || !state || !zipCode) {
@@ -78,7 +86,7 @@ export async function POST(request: Request) {
       )
     }
 
-    const slug = createSlug(name, state)
+    const slug = createSlug(name, city, state, zipCode)
 
     // Add document to Firestore using the slug as the ID
     const facilitiesRef = db.collection('facilities')
@@ -99,6 +107,8 @@ export async function POST(request: Request) {
       state,
       zipCode,
       phoneNumber,
+      url,
+      isActive: false,
       createdAt: new Date() as unknown as FirebaseFirestore.Timestamp
     }
     
